@@ -37,12 +37,13 @@
 ### Association
 - belongs_to :users
 - has_many :messages
-- has_one :purchases
+- has_one :address
 
 ## addresses テーブル
 
 | Column        | Type       | Options                        |
 | --------------| ---------- | ------------------------------ |
+| item          | integer    | foreign_key: true              | 商品ID
 | zip_code      | integer    | null: false                    | 郵便番号
 | prefecture    | integer    | null: false                    | 都道府県 Active_hash
 | city          | text       | null: false                    | 市町村
