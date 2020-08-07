@@ -19,6 +19,7 @@
 ### Association
 - has_many :items
 - has_many :messages
+- has_many :orders
 
 
 ## items テーブル
@@ -40,6 +41,7 @@
 - belongs_to :users
 - has_many :messages
 - has_one :address
+- has_one :orders
 
 ## addresses テーブル
 
