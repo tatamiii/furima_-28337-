@@ -4,18 +4,17 @@
 
 ## users テーブル
 
-| Column   | Type    | Options     |
-| -------- | ------  | ----------- |
-| nickname | string  | null: false | ニックネーム
-| name     | string  | null: false | 名前
-| kana     | string  | null: false | 名前(カナ)
-| email    | text    | null: false | e-mail
-| password | text    | null: false | パスワード
-| year     | date    | null: false | 生年月日(年) Active_hash
-| month    | date    | null: false | 生年月日(月) Active_hash
-| day      | date    | null: false | 生年月日(日) Active_hash
-
-
+| Column                | Type    | Options     |
+| --------------------- | ------  | ----------- |
+| nickname              | string  | null: false | ニックネーム
+| name                  | string  | null: false | 名前
+| kana                  | string  | null: false | 名前(カナ)
+| email                 | text    | null: false | e-mail
+| password              | text    | null: false | パスワード
+| password_confirmation | text    | null: false | パスワード(確認)
+| year                  | date    | null: false | 生年月日(年) Active_hash
+| month                 | date    | null: false | 生年月日(月) Active_hash
+| day                   | date    | null: false | 生年月日(日) Active_hash
 
 ### Association
 - has_many :items
@@ -49,10 +48,10 @@
 | exhibitor     | text       | null: false, foreign_key: true | 出品者
 | zip_code      | integer    | null: false                    | 郵便番号
 | prefecture    | string     | null: false                    | 都道府 Active_hash
-| city          | references | null: false                    | 市町村
-| house_number  | references | null: false                    | 番地
-| building_name | references |                                | 建物名
-| phone_number  | references | null: false                    | 電話番号
+| city          | text       | null: false                    | 市町村
+| house_number  | text       | null: false                    | 番地
+| building_name | text       |                                | 建物名
+| phone_number  | text       | null: false                    | 電話番号
 
 ### Association
 belongs_to :items
@@ -64,6 +63,17 @@ belongs_to :items
 | content | string     | foreign_key: true              | 商品ID
 | user    | references | foreign_key: true              | ユーザーID
 | room    | references | null: false, foreign_key: true | コメント
+
+### Association
+belongs_to :users
+belongs_to :items
+
+## orders テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| price   | integer    | foreign_key: true              | 価格
+| ID      | references | foreign_key: true              | 出品者ID
 
 ### Association
 belongs_to :users
