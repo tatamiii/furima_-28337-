@@ -47,7 +47,7 @@
 | purchaser     | text       | null: false, foreign_key: true | 購入者
 | exhibitor     | text       | null: false, foreign_key: true | 出品者
 | zip_code      | integer    | null: false                    | 郵便番号
-| prefecture    | string     | null: false                    | 都道府 Active_hash
+| prefecture    | string     | null: false                    | 都道府県 Active_hash
 | city          | text       | null: false                    | 市町村
 | house_number  | text       | null: false                    | 番地
 | building_name | text       |                                | 建物名
