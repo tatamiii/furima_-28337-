@@ -11,9 +11,9 @@
 | kana     | string  | null: false | 名前(カナ)
 | email    | text    | null: false | e-mail
 | password | text    | null: false | パスワード
-| year     | date    | null: false | 生年月日(年) Active_hase
-| month    | date    | null: false | 生年月日(月) Active_hase
-| day      | date    | null: false | 生年月日(日) Active_hase
+| year     | date    | null: false | 生年月日(年) Active_hash
+| month    | date    | null: false | 生年月日(月) Active_hash
+| day      | date    | null: false | 生年月日(日) Active_hash
 
 
 
