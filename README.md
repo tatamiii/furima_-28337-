@@ -38,10 +38,10 @@
 | user            | references | null: false, foreign_key: true | 出品者ID
 
 ### Association
-- belongs_to :users
+- belongs_to :user
 - has_many :messages
 - has_one :address
-- has_one :orders
+- has_one :order
 
 ## addresses テーブル
 
@@ -56,7 +56,7 @@
 | phone_number  | string     | null: false                    | 電話番号
 
 ### Association
-belongs_to :items
+belongs_to :item
 
 ## messages テーブル
 
@@ -67,8 +67,8 @@ belongs_to :items
 | comments| text       | null: false                                 | コメント
 
 ### Association
-belongs_to :users
-belongs_to :items
+belongs_to :user
+belongs_to :item
 
 ## orders テーブル
 
@@ -78,5 +78,5 @@ belongs_to :items
 | user      | references | null: false, foreign_key: true              | 購入者
 
 ### Association
-belongs_to :users
-belongs_to :items
+belongs_to :user
+belongs_to :item
