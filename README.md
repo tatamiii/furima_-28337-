@@ -6,11 +6,21 @@
 
 | Column   | Type    | Options     |
 | -------- | ------  | ----------- |
+| nickname | string  | null: false | ニックネーム
 | name     | string  | null: false | 名前
-| name     | string  | null: false | 名前(カナ)
+| kana     | string  | null: false | 名前(カナ)
 | email    | text    | null: false | e-mail
-| password | date    | null: false | パスワード
-| dob      | date    | null: false | 生年月日
+| password | text    | null: false | パスワード
+| year     | date    | null: false | 生年月日(年) Active_hase
+| month    | date    | null: false | 生年月日(月) Active_hase
+| day      | date    | null: false | 生年月日(日) Active_hase
+
+
+
+### Association
+- has_many :items
+- has_many :messages
+
 
 ## items テーブル
 
@@ -26,18 +36,26 @@
 | delivery_time   | integer | null: false | 発送までの日数 Active_hash
 | price           | integer | null: false | 価格
 
+### Association
+- belongs_to :users
+- has_many :messages
+- has_one :purchases
+
 ## purchases テーブル
 
 | Column        | Type       | Options                        |
 | --------------| ---------- | ------------------------------ |
-| purchaser     | references | null: false, foreign_key: true | 購入者
-| exhibitor     | references | null: false, foreign_key: true | 出品者
+| purchaser     | text       | null: false, foreign_key: true | 購入者
+| exhibitor     | text       | null: false, foreign_key: true | 出品者
 | zip_code      | integer    | null: false                    | 郵便番号
-| prefecture    | string     | null: false                    | 都道府県 Active_hash
+| prefecture    | string     | null: false                    | 都道府 Active_hash
 | city          | references | null: false                    | 市町村
 | house_number  | references | null: false                    | 番地
 | building_name | references |                                | 建物名
 | phone_number  | references | null: false                    | 電話番号
+
+### Association
+belongs_to :items
 
 ## messages テーブル
 
@@ -46,3 +64,7 @@
 | content | string     | foreign_key: true              | 商品ID
 | user    | references | foreign_key: true              | ユーザーID
 | room    | references | null: false, foreign_key: true | コメント
+
+### Association
+belongs_to :users
+belongs_to :items
