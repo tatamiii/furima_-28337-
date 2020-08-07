@@ -59,7 +59,7 @@ belongs_to :items
 | ------- | ---------- | ------------------------------ |
 | content | string     | foreign_key: true              | 商品ID
 | user    | references | foreign_key: true              | ユーザーID
-| room    | references | null: false, foreign_key: true | コメント
+| comments| text       | null: false                    | コメント
 
 ### Association
 belongs_to :users
@@ -69,8 +69,8 @@ belongs_to :items
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| content   | references | foreign_key: true              | 商品ID
-| purchaser | references | foreign_key: true              | 購入者
+| item      | references | foreign_key: true              | 商品ID
+| user      | references | foreign_key: true              | 購入者
 
 ### Association
 belongs_to :users
