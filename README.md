@@ -7,8 +7,10 @@
 | Column                | Type    | Options     |
 | --------------------- | ------  | ----------- |
 | nickname              | string  | null: false | ニックネーム
-| name                  | string  | null: false | 名前
-| kana                  | string  | null: false | 名前(カナ)
+| last_name             | string  | null: false | 苗字
+| first_name            | string  | null: false | 名前
+| last_kana             | string  | null: false | 苗字(カナ)
+| first_kana            | string  | null: false | 名前(カナ)
 | email                 | text    | null: false | e-mail
 | password              | text    | null: false | パスワード
 | password_confirmation | text    | null: false | パスワード(確認)
@@ -21,18 +23,18 @@
 
 ## items テーブル
 
-| Column          | Type    | Options     |
-| ----------------| --------| ----------- |
-| name            | string  | null: false | 商品名
-| product_image   | string  | null: false | 商品画像
-| description     | text    | null: false | 商品の説明
-| category        | integer | null: false | カテゴリー Active_hash
-| condition       | integer | null: false | 商品の状態 Active_hash
-| fee             | integer | null: false | 配送料 Active_hash
-| sending_area    | integer | null: false | 発送元の地域 Active_hash
-| delivery_time   | integer | null: false | 発送までの日数 Active_hash
-| price           | integer | null: false | 価格
-| exhibitor       | integer | null: false | 出品者
+| Column          | Type       | Options           |
+| ----------------| -----------| ----------------- |
+| name            | string     | null: false       | 商品名
+| product_image   | string     | null: false       | 商品画像
+| description     | text       | null: false       | 商品の説明
+| category        | integer    | null: false       | カテゴリー Active_hash
+| condition       | integer    | null: false       | 商品の状態 Active_hash
+| fee             | integer    | null: false       | 配送料 Active_hash
+| sending_area    | integer    | null: false       | 発送元の地域 Active_hash
+| delivery_time   | integer    | null: false       | 発送までの日数 Active_hash
+| price           | integer    | null: false       | 価格
+| user            | references | foreign_key: true | 出品者ID
 
 ### Association
 - belongs_to :users
@@ -44,7 +46,7 @@
 | Column        | Type       | Options                        |
 | --------------| ---------- | ------------------------------ |
 | item          | integer    | foreign_key: true              | 商品ID
-| zip_code      | integer    | null: false                    | 郵便番号
+| zip_code      | string     | null: false                    | 郵便番号
 | prefecture    | integer    | null: false                    | 都道府県 Active_hash
 | city          | text       | null: false                    | 市町村
 | house_number  | text       | null: false                    | 番地
