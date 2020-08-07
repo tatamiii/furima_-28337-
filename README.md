@@ -45,13 +45,13 @@
 
 | Column        | Type       | Options                        |
 | --------------| ---------- | ------------------------------ |
-| item          | integer    | foreign_key: true              | 商品ID
+| item          | references | foreign_key: true              | 商品ID
 | zip_code      | string     | null: false                    | 郵便番号
 | prefecture    | integer    | null: false                    | 都道府県 Active_hash
-| city          | text       | null: false                    | 市町村
-| house_number  | text       | null: false                    | 番地
-| building_name | text       |                                | 建物名
-| phone_number  | text       | null: false                    | 電話番号
+| city          | string     | null: false                    | 市町村
+| house_number  | string     | null: false                    | 番地
+| building_name | string     |                                | 建物名
+| phone_number  | string     | null: false                    | 電話番号
 
 ### Association
 belongs_to :items
