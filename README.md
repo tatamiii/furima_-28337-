@@ -69,7 +69,7 @@ belongs_to :items
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| content   | string     | foreign_key: true              | 商品ID
+| content   | references | foreign_key: true              | 商品ID
 | purchaser | references | foreign_key: true              | 購入者
 
 ### Association
